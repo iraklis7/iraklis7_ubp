@@ -15,6 +15,8 @@ def simple_test():
     processor = Utility_Bill_Processor(output_dir="../output")
     
     print("Processing file: " + utility_bill)
+    extract_res     = None
+    
     try:
         parse_res   = processor.parse(utility_bill)
         schema      = processor.get_schema(parse_res.markdown)
