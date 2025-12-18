@@ -7,6 +7,8 @@ sys.path.append(str(Path(__file__).resolve().parent.parent / "src"))
 from utility_bill_processor.utility_proc import Utility_Bill_Processor
 
 def simple_test():
+    assert 15 == 15
+
     invoices_path = "tests/invoices/"
     expected_values_path = "tests/expected/"
     utility_bill = invoices_path + "ElectricityInvoice_2025-11-04.pdf"
