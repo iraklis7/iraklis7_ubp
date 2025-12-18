@@ -1,5 +1,9 @@
 import sys
 from pathlib import Path
+
+# Add the `src` directory to Python's module search path
+sys.path.append(str(Path(__file__).resolve().parent.parent / "src"))
+
 from src.utility_bill_processor.utility_proc import Utility_Bill_Processor
 
 import glob
@@ -16,11 +20,11 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-def test_utility_proc():
+def test_regression():
     total_differences = 0
-    expected_values_path = "./expected"
-    processor = Utility_Bill_Processor(output_dir="../output")
-    filelist = glob.glob("./invoices/*.pdf")
+    expected_values_path = "tests/expected"
+    processor = Utility_Bill_Processor(output_dir="output/")
+    filelist = glob.glob("tests/invoices/*.pdf")
     for i in range(len(filelist)):
         print("Processing file: " + filelist[i])
 
@@ -60,8 +64,7 @@ def test_utility_proc():
                 current_differences += 1
                 total_differences += 1
                 values_match_c = u'\N{cross mark}'
-                #print(f"Mismatch found for key '{key}': extracted value '{value}' does not match expected value '{exp_value}'")
-            print("{:<30} {:<30} {:<30} {:<10}".format(key, value, exp_value, values_match_c))
+                print("{:<30} {:<30} {:<30} {:<10}".format(key, value, exp_value, values_match_c))
         print("\n")
         
     if(total_differences == 0):
@@ -69,8 +72,3 @@ def test_utility_proc():
     else:
         print(f"{bcolors.FAIL}Total Differences: {total_differences}{bcolors.ENDC}")
 
-def main():
-    test_utility_proc()
-
-if __name__ == "__main__":
-    main()
