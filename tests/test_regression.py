@@ -4,7 +4,7 @@ from pathlib import Path
 # Add the `src` directory to Python's module search path
 sys.path.append(str(Path(__file__).resolve().parent.parent / "src"))
 
-from src.utility_bill_processor.utility_proc import Utility_Bill_Processor
+from utility_bill_processor.utility_proc import Utility_Bill_Processor
 
 import glob
 import ast
