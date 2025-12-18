@@ -23,7 +23,7 @@ def simple_test():
     except Exception as e:
         print("Error processing file " + utility_bill + ": " + str(e))
 
-    if(ext_values):
+    if(extract_res):
         ext_values = extract_res.extraction
         print("{:<30} {:<30} ".format('FIELD', 'VALUE'))
         for key, value in ext_values.items():
