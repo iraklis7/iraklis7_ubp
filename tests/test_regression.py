@@ -23,7 +23,7 @@ class bcolors:
 def test_regression():
     total_differences = 0
     expected_values_path = "tests/expected"
-    processor = Utility_Bill_Processor(output_dir="output/")
+    processor = Utility_Bill_Processor(env="eu", output_dir="output/")
     filelist = glob.glob("tests/invoices/*.pdf")
     for i in range(len(filelist)):
         print("Processing file: " + filelist[i])
