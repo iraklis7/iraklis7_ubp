@@ -12,7 +12,7 @@ def test_simple():
     invoices_path = "tests/invoices/"
     expected_values_path = "tests/expected/"
     utility_bill = invoices_path + "ElectricityInvoice_2025-11-04.pdf"
-    processor = Utility_Bill_Processor(output_dir="../output")
+    processor = Utility_Bill_Processor(env="eu", output_dir="output/")
     
     print("Processing file: " + utility_bill)
     extract_res     = None
