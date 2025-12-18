@@ -6,11 +6,11 @@ from .utility_model import Utility_Bill, Utility_Bill_Gas, Utility_Bill_Power, U
 from pathlib import Path
 
 class Utility_Bill_Processor(object) :
-    def __init__(self, output_dir="./output"):
+    def __init__(self, env="eu", output_dir="./output"):
         self.__output_dir           = output_dir
         self.__ade_client           = LandingAIADE(
             apikey=os.environ.get("VISION_AGENT_API_KEY"),
-            environment="eu"
+            environment=env
         )
         self.__filename             = ""
     
