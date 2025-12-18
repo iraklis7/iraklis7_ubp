@@ -22,6 +22,7 @@ class bcolors:
 
 def test_regression():
 
+
     total_differences = 0
     expected_values_path = "tests/expected"
     processor = Utility_Bill_Processor(env="eu", output_dir="output/")
@@ -53,10 +54,10 @@ def test_regression():
 
         current_differences = 0
         for key, value in ext_values.items():
-            if (value == None):
+            if value == None:
                 value = "None"
             exp_value = expected_values[key]
-            if (exp_value == None):
+            if exp_value == None:
                 exp_value = "None"
 
             values_match_c = u'\N{check mark}'
@@ -71,4 +72,3 @@ def test_regression():
         print(f"{bcolors.OKGREEN}Total Differences: {total_differences}{bcolors.ENDC}")
     else:
         print(f"{bcolors.FAIL}Total Differences: {total_differences}{bcolors.ENDC}")
-        

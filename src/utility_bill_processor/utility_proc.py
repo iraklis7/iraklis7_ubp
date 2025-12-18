@@ -6,6 +6,7 @@ from pathlib import Path
 
 class Utility_Bill_Processor(object):
 
+
     def __init__(self, env="eu", output_dir="./output"):
         self.__output_dir = output_dir
         self.__ade_client = LandingAIADE(
@@ -13,10 +14,10 @@ class Utility_Bill_Processor(object):
             environment=env
         )
         self.__filename = ""
-    
+
     def get_filename(self):
         return self.__filename
-    
+
     def parse(self, input_path):
         # Store filename
         self.__filename = os.path.basename(input_path)
@@ -69,11 +70,11 @@ class Utility_Bill_Processor(object):
         elif "ΛΟΓΑΡΙΑΣΜΟΣ ΗΛΕΚΤΡΙΚΟΥ ΡΕΥΜΑΤΟΣ" in markdown:
             bill_type = Utility_Bill_Power
         elif "Ύδρευσης" in markdown:
-            bill_type = Utility_Bill_Water 
+            bill_type = Utility_Bill_Water
         else:
             bill_type = Utility_Bill
             print("Unrecognized utility bill type. Defaulting to base Utility_Bill schema.")
-        return pydantic_to_json_schema(bill_type) 
+        return pydantic_to_json_schema(bill_type)
 
     def extract(self, markdown, schema):
         # Use with the SDK
@@ -105,4 +106,3 @@ class Utility_Bill_Processor(object):
             print("Error writing extract output to file: " + str(e))
 
         return response
-
