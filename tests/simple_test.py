@@ -12,7 +12,7 @@ def simple_test():
     print("Processing file: " + utility_bill)
 
     try:
-        parse_res   = processor.parse(filelist[i])
+        parse_res   = processor.parse(utility_bill)
         schema      = processor.get_schema(parse_res.markdown)
         extract_res = processor.extract(parse_res.markdown, schema)
     except Exception as e:
@@ -21,6 +21,8 @@ def simple_test():
 
     ext_values = extract_res.extraction
     print("{:<30} {:<30} ".format('FIELD', 'VALUE'))
+    for key, value in ext_values.items():
+        print("{:<30} {:<30} ".format(key, value))
 
 def main():
     simple_test()
