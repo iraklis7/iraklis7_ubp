@@ -6,7 +6,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent / "src"))
 
 from utility_bill_processor.utility_proc import Utility_Bill_Processor
 
-def simple_test():
+def test_simple():
     assert 15 == 15
 
     invoices_path = "tests/invoices/"
