@@ -1,30 +1,29 @@
 import os
 from landingai_ade import LandingAIADE
 from landingai_ade.lib import pydantic_to_json_schema
-#from utility_model import Utility_Bill, Utility_Bill_Gas, Utility_Bill_Power, Utility_Bill_Water
 from .utility_model import Utility_Bill, Utility_Bill_Gas, Utility_Bill_Power, Utility_Bill_Water
 from pathlib import Path
 
-class Utility_Bill_Processor(object) :
+class Utility_Bill_Processor(object):
+
     def __init__(self, env="eu", output_dir="./output"):
-        self.__output_dir           = output_dir
-        self.__ade_client           = LandingAIADE(
+        self.__output_dir = output_dir
+        self.__ade_client = LandingAIADE(
             apikey=os.environ.get("VISION_AGENT_API_KEY"),
             environment=env
         )
-        self.__filename             = ""
+        self.__filename = ""
     
     def get_filename(self):
         return self.__filename
     
-    def parse(self, input_path) :    
+    def parse(self, input_path):
         # Store filename
         self.__filename = os.path.basename(input_path)
-        
+
         try:
             with open(input_path, 'r') as file:
                 file.close()
-            #Path(input_path).is_file()
         except FileNotFoundError as e:
             print(str(e))
             raise
@@ -62,8 +61,8 @@ class Utility_Bill_Processor(object) :
             print("Error writing parse output to file: " + str(e))
 
         return response
-        
-    def get_schema(self, markdown) :
+
+    def get_schema(self, markdown):
         bill_type = None
         if "ΠΡΟΜΗΘΕΙΑ ΦΥΣΙΚΟΥ ΑΕΡΙΟΥ" in markdown:
             bill_type = Utility_Bill_Gas
@@ -76,7 +75,7 @@ class Utility_Bill_Processor(object) :
             print("Unrecognized utility bill type. Defaulting to base Utility_Bill schema.")
         return pydantic_to_json_schema(bill_type) 
 
-    def extract(self, markdown, schema) :
+    def extract(self, markdown, schema):
         # Use with the SDK
         # Convert markdown to structured data
         try:
@@ -106,4 +105,4 @@ class Utility_Bill_Processor(object) :
             print("Error writing extract output to file: " + str(e))
 
         return response
-    
+

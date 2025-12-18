@@ -11,7 +11,7 @@ description = "Utility Bill Processor"
 readme = "README.md"
 requires-python = ">=3.9,<4.0"
 # "LICENSE" is name of the license file, which must be in root of project folder
-license = {file = "LICENSE"}
+license = "MIT"
 authors = [
     {name = "Iraklis Diamantidis", email = "iraklis.diamantidis@gmail.com"},
 ]
