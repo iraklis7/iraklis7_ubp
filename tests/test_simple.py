@@ -5,9 +5,8 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent / "src"))
 from utility_bill_processor.utility_proc import Utility_Bill_Processor
 
+
 def test_simple():
-
-
     invoices_path = "tests/invoices/"
     utility_bill = invoices_path + "ElectricityInvoice_2025-11-04.pdf"
     processor = Utility_Bill_Processor(env="eu", output_dir="output/")

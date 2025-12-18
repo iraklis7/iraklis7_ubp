@@ -4,9 +4,8 @@ from landingai_ade.lib import pydantic_to_json_schema
 from .utility_model import Utility_Bill, Utility_Bill_Gas, Utility_Bill_Power, Utility_Bill_Water
 from pathlib import Path
 
+
 class Utility_Bill_Processor(object):
-
-
     def __init__(self, env="eu", output_dir="./output"):
         self.__output_dir = output_dir
         self.__ade_client = LandingAIADE(
@@ -28,7 +27,7 @@ class Utility_Bill_Processor(object):
         except FileNotFoundError as e:
             print(str(e))
             raise
-            
+
         # ADE Client to Parse Utility bills and produce markdown
         try:
             response = self.__ade_client.parse(
