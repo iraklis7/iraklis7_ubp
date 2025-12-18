@@ -1,0 +1,3 @@
+pydantic
+landingai_ade
+pathlib
