@@ -1,0 +1,48 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=61.0", "wheel>=0.37.1"]
+
+
+[project]
+# https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
+name = "utility_bill_processor"
+version = "1.0.0"
+description = "Utility Bill Processor"
+readme = "README.md"
+requires-python = ">=3.9,<4.0"
+# "LICENSE" is name of the license file, which must be in root of project folder
+license = {file = "LICENSE"}
+authors = [
+    {name = "Iraklis Diamantidis", email = "iraklis.diamantidis@gmail.com"},
+]
+keywords = ["utility", "bill"]
+
+# https://pypi.org/classifiers/
+# Add PyPI classifiers here
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: Implementation :: CPython",
+]
+
+# Required dependencies for install/usage of your package or application
+# If you don't have any dependencies, leave this section empty
+# Format for dependency strings: https://peps.python.org/pep-0508/
+dependencies = [
+    # ... put stuff here ...
+]
+
+[project.scripts]
+# Command line interface entrypoint scripts
+acme = "utility_bill_processor.__main__:main"
