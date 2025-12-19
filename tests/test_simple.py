@@ -1,10 +1,11 @@
-import sys
+#import sys
 from pathlib import Path
 
 # Add the `src` directory to Python's module search path
-sys.path.append(str(Path(__file__).resolve().parent.parent / "src"))
-from utility_bill_processor.utility_proc import Utility_Bill_Processor
-
+#sys.path.append(str(Path(__file__).resolve().parent.parent / "src"))
+#from src.utility_proc import Utility_Bill_Processor
+from src.ubp.utility_proc import Utility_Bill_Processor
+#import ubp.utility_proc.Utility_Bill_Processor
 
 def test_simple():
     invoices_path = "tests/invoices/"
@@ -26,3 +27,7 @@ def test_simple():
         print("{:<30} {:<30} ".format('FIELD', 'VALUE'))
         for key, value in ext_values.items():
             print("{:<30} {:<30} ".format(key, value))
+
+if __name__ == '__main__':
+    # Execute when the module is not initialized from an import statement.
+    test_simple()
