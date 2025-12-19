@@ -37,6 +37,7 @@ jobs:
     - name: set PYTHONPATH
       run: |
         echo "PYTHONPATH=mlprepare" >> $GITHUB_ENV
+        echo $GITHUB_ENV | grep PYTHONPATH
     - name: Test with pytest
       run: |
         pytest -vv -s
