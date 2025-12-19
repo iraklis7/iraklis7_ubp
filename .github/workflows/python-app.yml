@@ -36,7 +36,10 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest
+        pytest          
+      env:
+          VISION_AGENT_API_KEY: ${{secrets.VISION_AGENT_API_KEY}}
+
     - name: Install pypa/build
       run: >-
         python3 -m
