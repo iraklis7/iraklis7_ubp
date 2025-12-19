@@ -1,11 +1,7 @@
-import sys
 from pathlib import Path
 import glob
 import ast
-
-# Add the `src` directory to Python's module search path
-sys.path.append(str(Path(__file__).resolve().parent.parent / "src"))
-from ubp.utility_proc import Utility_Bill_Processor
+from src.ubp.utility_proc import Utility_Bill_Processor
 
 
 class bcolors:
