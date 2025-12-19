@@ -1,11 +1,7 @@
 #import sys
 from pathlib import Path
-
-# Add the `src` directory to Python's module search path
-#sys.path.append(str(Path(__file__).resolve().parent.parent / "src"))
-#from src.utility_proc import Utility_Bill_Processor
 from src.ubp.utility_proc import Utility_Bill_Processor
-#import ubp.utility_proc.Utility_Bill_Processor
+
 
 def test_simple():
     invoices_path = "tests/invoices/"
