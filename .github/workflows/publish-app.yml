@@ -2,7 +2,7 @@ name: Publish Python 🐍 distribution 📦 to PyPI and TestPyPI
 
 on:
   workflow_run:
-    workflows: [Python application]
+    workflows: [Test Python application]
     branches: [main]
     types: 
       - completed
@@ -45,7 +45,7 @@ jobs:
 
     environment:
       name: testpypi
-      url: https://test.pypi.org/p/iraklis7_ubp/
+      url: https://test.pypi.org/p/iraklis7-ubp/
 
     permissions:
       id-token: write  # IMPORTANT: mandatory for trusted publishing
