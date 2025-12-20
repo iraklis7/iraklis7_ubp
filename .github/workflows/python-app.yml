@@ -36,7 +36,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: set PYTHONPATH
       run: |
-        echo "PYTHONPATH=/home/runner/work/iraklis7-ubp/iraklis7-ubp/" >> $GITHUB_ENV
+        echo "PYTHONPATH=/home/runner/work/iraklis7_ubp/iraklis7_ubp/" >> $GITHUB_ENV
     - name: Test with pytest
       run: |
         pytest -vv -s
