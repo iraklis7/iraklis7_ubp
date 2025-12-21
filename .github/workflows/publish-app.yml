@@ -14,7 +14,7 @@ jobs:
   build:
     name: Build distribution 📦
     runs-on: ubuntu-latest
-    # if: startsWith(github.ref, 'refs/tags/')  # only build on tag pushes
+    if: startsWith(github.ref, 'refs/tags/')  # only build on tag pushes
     # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     
     steps:
