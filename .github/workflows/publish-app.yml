@@ -45,7 +45,7 @@ jobs:
 
     environment:
       name: testpypi
-      url: https://test.pypi.org/p/iraklis7-ubp/
+      url: https://test.pypi.org/p/iraklis7_ubp/
 
     permissions:
       id-token: write  # IMPORTANT: mandatory for trusted publishing
