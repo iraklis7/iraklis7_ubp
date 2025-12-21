@@ -1,11 +1,11 @@
 name: Publish Python 🐍 distribution 📦 to PyPI and TestPyPI
 
 on:
-  workflow_run:
-    workflows: [Test Python application]
-    branches: [main]
-    types: 
-      - completed
+  #workflow_run:
+  #  workflows: [Test Python application]
+  #  branches: [main]
+  #  types: 
+  #    - completed
   push:
     tags:
       - 'v*.*.*'  # Trigger on version tags like v1.2.3
