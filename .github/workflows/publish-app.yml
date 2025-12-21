@@ -1,20 +1,18 @@
 name: Publish Python 🐍 distribution 📦 to PyPI and TestPyPI
 
 on:
-  push:
-    branches: [ "main" ]
-#  workflow_run:
-#    workflows: [Test Python application]
-#    branches: [main]
-#    types: 
-#      - completed
+  workflow_run:
+    workflows: [Test Python application]
+    branches: [main]
+    types: 
+      - completed
 
 
 jobs:
   build:
     name: Build distribution 📦
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')  # only build on tag pushes
+    # if: startsWith(github.ref, 'refs/tags/')  # only build on tag pushes
     # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     
     steps:
