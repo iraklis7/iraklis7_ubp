@@ -1,12 +1,13 @@
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = ["setuptools>=61.0", "setuptools-scm>=8.0"]
+# requires = ["setuptools>=61.0", "setuptools-scm>=8.0"]
+requires = ["setuptools>=61.0"]
 
 
 [project]
 # https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
 name = "iraklis7_ubp"
-version = "1.1.15"
+version = "1.1.16"
 description = "Utility Bill Processor"
 readme = "README.md"
 requires-python = ">=3.9,<4.0"
