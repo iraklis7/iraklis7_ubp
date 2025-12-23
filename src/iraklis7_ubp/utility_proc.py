@@ -5,7 +5,7 @@ from landingai_ade import LandingAIADE
 from landingai_ade.lib import pydantic_to_json_schema
 from landingai_ade.types.parse_response import ParseResponse
 from landingai_ade.types.extract_response import ExtractResponse
-from src.ubp import utility_model
+from src.iraklis7_ubp import utility_model
 
 
 class Utility_Bill_Processor(object):
