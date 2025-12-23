@@ -17,7 +17,7 @@ authors = [
     {name = "Iraklis Diamantidis", email = "iraklis.diamantidis@gmail.com"},
 ]
 keywords = ["utility", "bill"]
-#dependencies = [
+dependencies = [
   "landingai_ade>=1.2.0",
   "pydantic>=2.12.5",
   "pathlib>=1.0.1"
