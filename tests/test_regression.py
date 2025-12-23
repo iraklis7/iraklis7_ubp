@@ -1,7 +1,7 @@
 import glob
 import ast
 from pathlib import Path
-from src.iraklis7_ubp.utility_proc import Utility_Bill_Processor
+from iraklis7_ubp.utility_proc import Utility_Bill_Processor
 
 
 class bcolors:
@@ -71,3 +71,6 @@ def compare_results(extracted_values, expected_values):
         print("{:<30} {:<30} {:<30} {:<10}".format(key, value, exp_value, values_match_c))
     print("\n")
     return mismatches
+
+if __name__ == '__main__':
+    test_regression()

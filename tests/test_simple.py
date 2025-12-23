@@ -1,4 +1,4 @@
-from src.iraklis7_ubp.utility_proc import Utility_Bill_Processor
+from iraklis7_ubp.utility_proc import Utility_Bill_Processor
 
 
 def test_simple():
@@ -23,3 +23,5 @@ def test_simple():
         for key, value in ext_values.items():
             print("{:<30} {:<30} ".format(key, value))
 
+if __name__ == '__main__':
+    test_simple()
