@@ -1,4 +1,4 @@
-from iraklis7_ubp.utility_proc import Utility_Bill_Processor
+from src.iraklis7_ubp.utility_proc import Utility_Bill_Processor
 
 
 def test_simple():
