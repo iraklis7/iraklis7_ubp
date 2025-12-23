@@ -6,7 +6,7 @@ requires = ["setuptools>=61.0", "setuptools-scm>=8.0"]
 [project]
 # https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
 name = "iraklis7_ubp"
-version = "1.1.12"
+version = "1.1.13"
 description = "Utility Bill Processor"
 readme = "README.md"
 requires-python = ">=3.9,<4.0"
@@ -22,20 +22,31 @@ dependencies = [
   "pathlib==1.0.1",
 ]
 
-[tool.setuptools.packages.find]
-where = ["output", "tests"]
+[tool.setuptools.packages]
+find = {}  # Scan the project directory with the default parameters
 
-[tool.setuptools.package-data]
-output = ["*.json"]
-expected = ["*.exp"]
-invoices = ["*.pdf"] 
 
-[tool.hatch.build.targets.sdist]
+#[tool.setuptools.packages.find]
+#where = ["output", "tests"]
+
+#[tool.setuptools.packages.find]
+# All the following settings are optional:
+#where = ["."]  # ["."] by default
+#include = ["src", "output", "tests"]  # ["*"] by default
+## exclude = ["mypackage.tests*"]  # empty by default
+#namespaces = false  # true by default
+
+#[tool.setuptools.package-data]
+#output = ["*.json"]
+#expected = ["*.exp"]
+#invoices = ["*.pdf"] 
+
+#[tool.hatch.build.targets.sdist]
 # Basically everything except hidden files/directories (such as .github, .devcontainers, .python-version, etc)
-include = [
-  "output/*",
-  "src/*",
-  "tests/*",
-  "/*.md",
-  "/*.txt",
-]
+#include = [
+#  "output/*",
+#  "src/*",
+#  "tests/*",
+#  "/*.md",
+#  "/*.txt",
+#]
