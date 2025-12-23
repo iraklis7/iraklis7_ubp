@@ -17,10 +17,10 @@ authors = [
     {name = "Iraklis Diamantidis", email = "iraklis.diamantidis@gmail.com"},
 ]
 keywords = ["utility", "bill"]
-dependencies = [
-  "landingai_ade",
-  "pydantic",
-]
+#dependencies = [
+#  "landingai_ade",
+#  "pydantic",
+#]
 
 [tool.hatch.build.targets.sdist]
 # Basically everything except hidden files/directories (such as .github, .devcontainers, .python-version, etc)
