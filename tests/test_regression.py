@@ -1,6 +1,6 @@
-from pathlib import Path
 import glob
 import ast
+from pathlib import Path
 from src.ubp.utility_proc import Utility_Bill_Processor
 
 
@@ -19,7 +19,7 @@ class bcolors:
 def test_regression():
     total_differences = 0
     expected_values_path = "tests/expected"
-    processor = Utility_Bill_Processor(env="eu", output_dir="output/")
+    processor = Utility_Bill_Processor(env="eu", output_dir="output/", use_cache=True)
     filelist = glob.glob("tests/invoices/*.pdf")
     for i in range(len(filelist)):
         print("Processing file: " + filelist[i])
@@ -33,6 +33,7 @@ def test_regression():
             continue
 
         ext_values = extract_res.extraction
+
         print("{:<30} {:<30} {:<30} {:<10}".format('FIELD', 'VALUE', 'EXPECTED', 'RESULT'))
 
         expected_values_from_file = None
@@ -55,6 +56,7 @@ def test_regression():
 
 def compare_results(extracted_values, expected_values):
     mismatches = 0
+
     for key, value in extracted_values.items():
         if value is None:
             value = "None"
@@ -66,6 +68,6 @@ def compare_results(extracted_values, expected_values):
         if (value != exp_value):
             mismatches += 1
             values_match_c = u'\N{cross mark}'
-            print("{:<30} {:<30} {:<30} {:<10}".format(key, value, exp_value, values_match_c))
+        print("{:<30} {:<30} {:<30} {:<10}".format(key, value, exp_value, values_match_c))
     print("\n")
     return mismatches

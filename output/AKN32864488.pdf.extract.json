@@ -1,0 +1,12 @@
+{ "extraction": {"issuer_name": "Εταιρεία Ύδρευσης & Αποχέτευσης Θεσσαλονίκης Α.Ε.", "document_number": "AKN32864488", "customer_id_number": "40-12-011-00-00", "customer_name": "[redacted]", "customer_address": "[redacted]", "customer_vat_number": "[redacted]", "customer_meter_number": "5085904Φ013ΟΥΝ", "bill_type": "None", "bill_pub_date": "2025-09-01", "bill_period_start": "2025-04-18", "bill_period_end": "2025-08-17", "bill_due_date": "2025-11-03", "bill_total_fixed_charges": 8.0, "bill_vat_amount": 3.88, "bill_refund_amount": "None", "bill_total_amount": 22.57, "water_charges": 5.47, "sewage_charges": 4.38, "bill_fees_amount": 0.84, "usage_cubic_meters": 12},
+  "extraction_metadata": {
+  },
+  "metadata": {
+    "credit_usage": 3.0,
+    "duration_ms": 3806,
+    "filename": "document.pdf",
+    "job_id": "nqwf8swa1rxo5ad56ykmvvr7m",
+    "page_count": 1,
+    "version": "dpt-2-20250919"
+  }
+}

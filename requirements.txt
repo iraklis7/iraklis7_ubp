@@ -1,3 +1,4 @@
 pydantic
 landingai_ade
+json
 pathlib
