@@ -20,7 +20,7 @@ keywords = ["utility", "bill"]
 dependencies = [
   "landingai_ade",
   "pydantic",
-  "pathlib%"
+  "pathlib"
 ]
 
 [tool.hatch.build.targets.sdist]
