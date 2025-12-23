@@ -6,7 +6,8 @@ requires = ["setuptools>=61.0", "setuptools-scm>=8.0"]
 [project]
 # https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
 name = "iraklis7_ubp"
-version = "1.1.8"
+# version = "1.1.8"
+dynamic = ["version"]
 description = "Utility Bill Processor"
 readme = "README.md"
 requires-python = ">=3.9,<4.0"
@@ -21,6 +22,14 @@ dependencies = [
   "pydantic==2.12.5",
   "pathlib==1.0.1",
 ]
+
+[tool.setuptools.packages.find]
+where = ["output", "tests"]
+
+[tool.setuptools.package-data]
+output = ["*.json"]
+expected = ["*.exp"]
+invoices = ["*.pdf"] 
 
 [tool.hatch.build.targets.sdist]
 # Basically everything except hidden files/directories (such as .github, .devcontainers, .python-version, etc)
