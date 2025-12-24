@@ -6,9 +6,9 @@ The package uses GitHub Actions for automated regression testing upon every push
 Please note that the VISION_AGENT_API_KEY environment variable must be set to the API key value in order for the Landing.AI python library to work.
 
 A caching mechanism has been added (use_cache option), which instructs the processor to look for a corresponding parse/extract results file in the 'output' directory. These files are the JSON dumps of the Landing.AI client's responses during normal operation.
-If use_cache is True and such a file is found, then the file contents are used by the processor, instead of calling the Landing.AI client. This is particularly useful during development, testing and demonstrations, since the flow is faster and no credits are consumed. Please note howeever, that if the invoice or the model (and therefore the schema) is changed, use_cache is True will return stale results, so it must be used with caution. 
-Future development will include the ability for the processor to automatically determine whether the cache is dirty and if so, try to use the Landing.AI client to fetch fresh results.
+If use_cache is True and such a file is found, then the file contents are used by the processor, instead of calling the Landing.AI client. This is particularly useful during development, testing and demonstrations, since the flow is faster and no credits are consumed. 
+The processor keeps an MD5 sum and the schema of all invoices processed, so it can automatically determine whether the cache is dirty and if so, try to use the Landing.AI client to fetch fresh results.
 
 ## Installation
 You can install the package via pip:
-pip install iraklis7_ubp -r requirements.txt
+pip install iraklis7_ubp

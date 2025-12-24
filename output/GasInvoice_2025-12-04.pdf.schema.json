@@ -1,0 +1,140 @@
+{
+    "properties": {
+        "issuer_name": {
+            "description": "Business full legal name issuing the invoice (usually contains 'Α.Ε.')",
+            "title": "Issuer Name",
+            "type": "string"
+        },
+        "document_number": {
+            "description": "Invoice document number or alphanumberic sequence including a space",
+            "title": "Document Number",
+            "type": "string"
+        },
+        "customer_id_number": {
+            "description": "Customer identification number (ΚΩΔΙΚΟΣ ΠΕΛΑΤΗ)",
+            "title": "Customer Id Number",
+            "type": "string"
+        },
+        "customer_name": {
+            "description": "Customer's name. If nooe is found return [redacted]",
+            "title": "Customer Name",
+            "type": "string"
+        },
+        "customer_address": {
+            "description": "Customer's address (no newline chars, include postal code). If none is found, return [redacted]",
+            "title": "Customer Address",
+            "type": "string"
+        },
+        "customer_vat_number": {
+            "description": "Customer VAT number, usually denoted as 'ΑΦΜ' or 'Α.Φ.Μ.'. If none is found, return [redacted]",
+            "title": "Customer Vat Number",
+            "type": "string"
+        },
+        "customer_meter_number": {
+            "description": "Electricity meter number",
+            "title": "Customer Meter Number",
+            "type": "string"
+        },
+        "bill_type": {
+            "description": "Type of bill, 'Έναντι' or 'Εκκαθαριστικός' only, 'None' otherwise",
+            "title": "Bill Type",
+            "type": "string"
+        },
+        "bill_pub_date": {
+            "description": "Publication date in YYYY-MM-DD format",
+            "title": "Bill Pub Date",
+            "type": "string"
+        },
+        "bill_period_start": {
+            "description": "Start date of the billing period in YYYY-MM-DD format",
+            "title": "Bill Period Start",
+            "type": "string"
+        },
+        "bill_period_end": {
+            "description": "End date of the billing period in YYYY-MM-DD format",
+            "title": "Bill Period End",
+            "type": "string"
+        },
+        "bill_due_date": {
+            "description": "Due date for the invoice payment in YYYY-MM-DD format",
+            "title": "Bill Due Date",
+            "type": "string"
+        },
+        "bill_total_fixed_charges": {
+            "description": "Total fixed charges on the invoice. Subtract any discounts (usually refered to as 'Έκπτωση παγίου')",
+            "title": "Bill Total Fixed Charges",
+            "type": "number"
+        },
+        "bill_vat_amount": {
+            "description": "Total VAT amount on the invoice (ΦΠΑ)",
+            "title": "Bill Vat Amount",
+            "type": "number"
+        },
+        "bill_refund_amount": {
+            "description": "Total refund amount on the invoice including minus sign, and excluding fixed charges. If it does not exist, return 'None'",
+            "title": "Bill Refund Amount",
+            "type": "number"
+        },
+        "bill_total_amount": {
+            "description": "Total amount due on the invoice",
+            "title": "Bill Total Amount",
+            "type": "number"
+        },
+        "commission_of_natural_gas": {
+            "description": "Commission of natural gas in euros (€)",
+            "title": "Commission Of Natural Gas",
+            "type": "number"
+        },
+        "distribution_of_natural_gas": {
+            "description": "Distribution of natural gas in euros (€)",
+            "title": "Distribution Of Natural Gas",
+            "type": "number"
+        },
+        "transport_of_natural_gas": {
+            "description": "Transport of natural gas in euros (€)",
+            "title": "Transport Of Natural Gas",
+            "type": "number"
+        },
+        "usage_cubic_meters": {
+            "description": "Gas usage in cubic meters (Nm^3)",
+            "title": "Usage Cubic Meters",
+            "type": "number"
+        },
+        "usage_kilowatt_hours": {
+            "description": "Gas usage in kilowatt hours (kWh)",
+            "title": "Usage Kilowatt Hours",
+            "type": "number"
+        },
+        "rate_per_kilowatt_hour": {
+            "description": "Rate per kilowatt hour (€/kWh)",
+            "title": "Rate Per Kilowatt Hour",
+            "type": "number"
+        }
+    },
+    "required": [
+        "issuer_name",
+        "document_number",
+        "customer_id_number",
+        "customer_name",
+        "customer_address",
+        "customer_vat_number",
+        "customer_meter_number",
+        "bill_type",
+        "bill_pub_date",
+        "bill_period_start",
+        "bill_period_end",
+        "bill_due_date",
+        "bill_total_fixed_charges",
+        "bill_vat_amount",
+        "bill_refund_amount",
+        "bill_total_amount",
+        "commission_of_natural_gas",
+        "distribution_of_natural_gas",
+        "transport_of_natural_gas",
+        "usage_cubic_meters",
+        "usage_kilowatt_hours",
+        "rate_per_kilowatt_hour"
+    ],
+    "title": "Utility_Bill_Gas",
+    "type": "object"
+}

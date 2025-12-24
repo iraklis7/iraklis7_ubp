@@ -3,7 +3,8 @@ from src.iraklis7_ubp.utility_proc import Utility_Bill_Processor
 
 def test_simple():
     invoices_path = "tests/invoices/"
-    utility_bill = invoices_path + "AKN32864488.pdf"
+    utility_bill = invoices_path + "GasInvoice_2025-12-04.pdf"
+    # utility_bill = invoices_path + "AKN32864488.pdf"
     processor = Utility_Bill_Processor(env="eu", output_dir="output/", use_cache=True)
 
     print("Processing file: " + utility_bill)
@@ -11,8 +12,7 @@ def test_simple():
 
     try:
         parse_res = processor.parse(utility_bill)
-        schema = processor.get_schema(parse_res.markdown)
-        #print("SCHEMA: " + str(schema))
+        schema = processor.get_schema(parse_res.markdown)    
         extract_res = processor.extract(parse_res.markdown, schema)
     except Exception as e:
         print("Error processing file " + utility_bill + ": " + str(e))

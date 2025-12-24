@@ -49,6 +49,19 @@ class Utility_Bill_Processor(object):
             print("Error writing to file: " + str(e))
             raise
 
+    def __get_file_md5(self, input_path):
+        import hashlib
+
+        hash_md5 = hashlib.md5()
+        try:
+            with open(input_path, "rb") as f:
+                for chunk in iter(lambda: f.read(4096), b""):
+                    hash_md5.update(chunk)
+            return hash_md5.hexdigest()
+        except FileNotFoundError as e:
+            print("Error computing MD5: " + str(e))
+            raise
+
     def parse(self, input_path)->ParseResponse:
         # Store filename
         self.__filename = os.path.basename(input_path)
@@ -56,6 +69,16 @@ class Utility_Bill_Processor(object):
         response = None
         if(self.__use_cache):
             try:
+                # Check to see if cache is dirty
+                pout = Path(self.__output_dir + "/" + self.__filename + ".md5.json")
+                print("Retrieving cache MD5 for : " + str(pout))
+                cache_md5 = self.__read_file(pout)
+                if(cache_md5['md5'] != self.__get_file_md5(input_path)):
+                    print("Cache is dirty. Will try to fetch fresh results.")
+                    raise Exception("Cache is dirty")
+                else:
+                    print("Cache is valid, will read parse results from cache.")
+
                 # If use_cache is True, read from cached markdown file
                 pout = Path(self.__output_dir + "/" + self.__filename + ".parse.json")
                 print("Using parse results from cache: " + str(pout))
@@ -71,7 +94,12 @@ class Utility_Bill_Processor(object):
                     document=Path(input_path),
                     model="dpt-2-latest",
                 )
-                pout = Path(self.__output_dir + "/" + self.__filename + ".parse.json]")
+                # Write MD5 to file
+                pout = Path(self.__output_dir + "/" + self.__filename + ".md5.json")
+                md5 = dict(md5=self.__get_file_md5(input_path))
+                self.__write_file(pout, md5)
+                # Write parse response to file
+                pout = Path(self.__output_dir + "/" + self.__filename + ".parse.json")
                 self.__write_file(pout, response)
             except Exception as e:
                 print("Communication with the ADE server failed: " + str(e))
@@ -98,6 +126,17 @@ class Utility_Bill_Processor(object):
         response = None
         if(self.__use_cache):
             try:
+                # Check to see if cache is dirty
+                pout = Path(self.__output_dir + "/" + self.__filename + ".schema.json")
+                print("Retrieving cached schema from : " + str(pout))
+                cached_schema = self.__read_file(pout)
+                
+                if(cached_schema != json.loads(schema)):
+                    print("Cache is dirty. Will try to fetch fresh results.")
+                    raise Exception("Cache is dirty")
+                else:
+                    print("Cache is valid, will read extract results from cache.")
+
                 # If use_cache is True, read from cached markdown file
                 pout = Path(self.__output_dir + "/" + self.__filename + ".extract.json")
                 print("Using parse results from cache: " + str(pout))
@@ -113,6 +152,9 @@ class Utility_Bill_Processor(object):
                     markdown=markdown,
                     model="extract-latest"
                 )
+                # Write schema to file.
+                pout = Path(self.__output_dir + "/" + self.__filename + ".schema.json")
+                self.__write_file(pout, json.loads(schema))
                 # Write extract response to file.
                 pout = Path(self.__output_dir + "/" + self.__filename + ".extract.json")
                 self.__write_file(pout, response)
